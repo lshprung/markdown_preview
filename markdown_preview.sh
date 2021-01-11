@@ -12,7 +12,6 @@ if [ $? -gt 0 ]; then
 fi
 
 LAST_MOD=`stat $1 --printf=%Y`
-echo $LAST_MOD
 
 #Initial run
 pandoc -f markdown -t pdf -o /tmp/preview.pdf $1
