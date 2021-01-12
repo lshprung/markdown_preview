@@ -2,6 +2,7 @@
 
 #Variables
 RUN=0
+SLEEP=1
 
 file -E $1 > /dev/null 2>&1
 
@@ -24,7 +25,7 @@ while [ $RUN -eq 0 ]; do
 		LAST_MOD=`stat $1 --printf=%Y`
 		pandoc -f markdown -t pdf -o /tmp/preview.pdf $1
 	fi
-	sleep 5
+	sleep $SLEEP
 	RUN=$(ps --pid $PID; echo $?)
 	RUN=$(echo $RUN | rev | cut -c 1)
 done
